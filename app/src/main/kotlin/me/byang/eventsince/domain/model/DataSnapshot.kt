@@ -21,7 +21,23 @@ data class DataSnapshot(
     val events: List<Event>,
     val logs: List<EventLog>,
     val reminders: List<Reminder>,
-)
+) {
+    /**
+     * Moves the events of this snapshot's default category into the category [targetId] and
+     * drops that default category, so merging a backup does not add a second "default" category.
+     * Moved events are renumbered from [firstPosition] to sort after the existing ones.
+     */
+    fun foldDefaultCategoryInto(targetId: String, firstPosition: Int): DataSnapshot {
+        val imported = categories.firstOrNull { it.isDefault } ?: return this
+        var next = firstPosition
+        return copy(
+            categories = categories.filter { it.id != imported.id },
+            events = events.map { e ->
+                if (e.categoryId == imported.id) e.copy(categoryId = targetId, position = next++) else e
+            },
+        )
+    }
+}
 
 /** What to do with the events of a category that is being deleted. */
 sealed interface CategoryDeletion {

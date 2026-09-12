@@ -99,12 +99,25 @@ class BackupCodecTest {
     fun `regenerated ids keep references`() {
         val fresh = BackupManager.regenerateIds(snapshot)
         assertNotEquals(snapshot.events[0].id, fresh.events[0].id)
-        assertTrue(fresh.categories.none { it.isDefault })
+        assertEquals(snapshot.categories.map { it.isDefault }, fresh.categories.map { it.isDefault })
         val c1 = fresh.categories[0].id
         assertEquals(c1, fresh.events.first { it.label == "Coffee" }.categoryId)
         val e1 = fresh.events.first { it.label == "Coffee" }.id
         assertEquals(2, fresh.logs.count { it.eventId == e1 })
         assertEquals(e1, fresh.reminders.single().eventId)
         assertEquals(snapshot.logs.size, fresh.logs.size)
+    }
+
+    @Test
+    fun `merging folds the backup's default category into the local one`() {
+        val importedDefault = snapshot.categories.first { it.isDefault }
+        val folded = snapshot.foldDefaultCategoryInto("local-default", firstPosition = 5)
+        assertTrue(folded.categories.none { it.id == importedDefault.id })
+        assertEquals(snapshot.categories.size - 1, folded.categories.size)
+        val moved = folded.events.filter { it.categoryId == "local-default" }
+        assertEquals(snapshot.events.count { it.categoryId == importedDefault.id }, moved.size)
+        assertEquals((5 until 5 + moved.size).toList(), moved.map { it.position })
+        assertEquals(snapshot.events.size, folded.events.size)
+        assertEquals(snapshot.logs, folded.logs)
     }
 }

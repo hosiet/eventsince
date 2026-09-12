@@ -313,7 +313,9 @@ class RoomEventRepository @Inject constructor(
     }
 
     override suspend fun appendAll(snapshot: DataSnapshot) = db.withTransaction {
-        insertSnapshot(snapshot, positionOffset = categories.maxPosition() + 1)
+        val default = getDefaultCategory()
+        val merged = snapshot.foldDefaultCategoryInto(default.id, events.maxPositionInCategory(default.id) + 1)
+        insertSnapshot(merged, positionOffset = categories.maxPosition() + 1)
     }
 
     private suspend fun insertSnapshot(snapshot: DataSnapshot, positionOffset: Int) {
@@ -322,7 +324,7 @@ class RoomEventRepository @Inject constructor(
             c.copy(position = positionOffset + index, isDefault = if (positionOffset > 0) false else c.isDefault || (!hasDefault && index == 0))
         }
         categories.insertAll(cats.map { it.toEntity() })
-        val validCategoryIds = cats.map { it.id }.toSet()
+        val validCategoryIds = cats.map { it.id }.toSet() + categories.getAll().map { it.id }
         val fallback = cats.firstOrNull()?.id ?: getDefaultCategory().id
         events.insertAll(snapshot.events.map { e ->
             (if (e.categoryId in validCategoryIds) e else e.copy(categoryId = fallback)).toEntity()

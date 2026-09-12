@@ -96,7 +96,7 @@ class BackupManager @Inject constructor(
             val categoryIds = snapshot.categories.associate { it.id to UUID.randomUUID().toString() }
             val eventIds = snapshot.events.associate { it.id to UUID.randomUUID().toString() }
             return DataSnapshot(
-                categories = snapshot.categories.map { it.copy(id = categoryIds.getValue(it.id), isDefault = false) },
+                categories = snapshot.categories.map { it.copy(id = categoryIds.getValue(it.id)) },
                 events = snapshot.events.map {
                     it.copy(id = eventIds.getValue(it.id), categoryId = categoryIds[it.categoryId] ?: it.categoryId)
                 },
