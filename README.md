@@ -93,6 +93,13 @@ Requirements:
 The debug build installs as a separate application (`me.byang.eventsince.debug`) so it
 can coexist with a release build.
 
+Release builds are signed only when the keystore location and passwords are supplied
+as Gradle properties or environment variables (see `app/build.gradle.kts`); otherwise
+`assembleRelease` produces an unsigned APK, which is what CI does. The maintainer's
+release flow is `scripts/build-release.sh`, which reads the keystore password from the
+desktop keyring, builds, verifies the signature with apksigner and writes a versioned
+APK to `app/build/outputs/release-dist/`.
+
 ## Project layout
 
 - `app/src/main/kotlin/me/byang/eventsince/core` contains the pure algorithms for
