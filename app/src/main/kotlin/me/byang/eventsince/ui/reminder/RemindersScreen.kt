@@ -16,8 +16,10 @@
 package me.byang.eventsince.ui.reminder
 
 import android.Manifest
+import android.app.AlarmManager
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -36,6 +38,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AlarmOff
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.NotificationsOff
 import androidx.compose.material3.AlertDialog
@@ -99,9 +102,18 @@ fun RemindersScreen(
     var granted by remember { mutableStateOf(hasPermission()) }
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted = it }
     LaunchedEffect(Unit) { if (!granted) launcher.launch(Manifest.permission.POST_NOTIFICATIONS) }
+    // SCHEDULE_EXACT_ALARM is granted from a system settings page rather than a dialog, so it is
+    // only re-checked when the screen comes back to the foreground.
+    val alarmManager = remember { context.getSystemService(AlarmManager::class.java) }
+    var exactAlarmsAllowed by remember { mutableStateOf(alarmManager.canScheduleExactAlarms()) }
     val lifecycleOwner = LocalLifecycleOwner.current
     LaunchedEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event -> if (event == Lifecycle.Event.ON_RESUME) granted = hasPermission() }
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                granted = hasPermission()
+                exactAlarmsAllowed = alarmManager.canScheduleExactAlarms()
+            }
+        }
         lifecycleOwner.lifecycle.addObserver(observer)
     }
     val limitMessage = stringResource(R.string.reminders_limit_reached)
@@ -162,6 +174,26 @@ fun RemindersScreen(
                                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName),
                                     )
                                 }) { Text(stringResource(R.string.reminders_open_settings)) }
+                            }
+                        }
+                    }
+                }
+            }
+            if (!exactAlarmsAllowed) {
+                item {
+                    Card(
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
+                    ) {
+                        Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Icon(Icons.Default.AlarmOff, contentDescription = null)
+                            Column {
+                                Text(stringResource(R.string.reminders_exact_alarms_off), style = MaterialTheme.typography.bodyMedium)
+                                TextButton(onClick = {
+                                    context.startActivity(
+                                        Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:" + context.packageName)),
+                                    )
+                                }) { Text(stringResource(R.string.reminders_allow_exact_alarms)) }
                             }
                         }
                     }

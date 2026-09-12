@@ -69,7 +69,10 @@ class AlarmReminderScheduler @Inject constructor(
         val fireAt = reminder.fireAt(event.startAt)
         if (fireAt <= clock.now()) return
         val pi = pendingIntent(reminder.id, PendingIntent.FLAG_UPDATE_CURRENT) ?: return
-        // USE_EXACT_ALARM is granted at install time; fall back to an inexact alarm just in case.
+        // SCHEDULE_EXACT_ALARM can be denied by the user (and is denied by default on Android 14+).
+        // Without it the reminder is still registered as an inexact alarm, so it arrives late
+        // rather than not at all; ReminderReceiver re-schedules everything when the permission
+        // state changes.
         if (alarmManager.canScheduleExactAlarms()) {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, fireAt, pi)
         } else {

@@ -178,6 +178,8 @@
     <string name="reminders_battery_hint">提醒不如闹钟精确。如果提醒迟到，点击此处把事起排除在电池优化之外。</string>
     <string name="reminders_permission_denied">事起的通知权限已关闭，无法显示提醒。</string>
     <string name="reminders_open_settings">打开通知设置</string>
+    <string name="reminders_exact_alarms_off">事起未获准设置精确闹钟，提醒可能会晚于目标达成的时刻送达。</string>
+    <string name="reminders_allow_exact_alarms">允许精确闹钟</string>
     <string name="reminders_empty">还没有提醒</string>
     <string name="reminders_target">目标值</string>
     <string name="reminders_limit_reached">已计划的提醒太多，请先删除一些。</string>

@@ -199,6 +199,8 @@
     <string name="reminders_battery_hint">Reminders are less precise than alarms. If they arrive late, tap here to exclude EventSince from battery optimisation.</string>
     <string name="reminders_permission_denied">Notifications are turned off for EventSince, so reminders cannot be shown.</string>
     <string name="reminders_open_settings">Open notification settings</string>
+    <string name="reminders_exact_alarms_off">EventSince is not allowed to set exact alarms, so reminders may arrive later than the moment the goal is reached.</string>
+    <string name="reminders_allow_exact_alarms">Allow exact alarms</string>
     <string name="reminders_empty">No reminders yet</string>
     <string name="reminders_target">Goal</string>
     <string name="reminders_limit_reached">Too many reminders are scheduled. Delete some first.</string>

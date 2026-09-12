@@ -51,8 +51,8 @@ The app is written in Kotlin with Jetpack Compose and Material 3, targets Androi
 - **Categories.** Events are grouped into categories that can be renamed, reordered and
   deleted, with a choice of what happens to the events they contain.
 - **Goal reminders.** Set a target such as "7 days" or "1 year" and get a notification
-  when the event reaches it. Reminders use exact alarms and survive reboots and time
-  zone changes.
+  when the event reaches it. Reminders use exact alarms when the user allows them (an
+  inexact alarm otherwise) and survive reboots and time zone changes.
 - **Colour palettes.** Fifteen colours in each of ten palettes, including one derived
   from the device's Material You colours. The app itself follows the system dynamic
   colour scheme with light and dark modes.

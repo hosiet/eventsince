@@ -15,6 +15,7 @@
  */
 package me.byang.eventsince.reminder
 
+import android.app.AlarmManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -27,7 +28,10 @@ import me.byang.eventsince.data.repository.EventRepository
 import me.byang.eventsince.domain.ReminderScheduler
 import javax.inject.Inject
 
-/** Fires a reminder notification, and re-schedules everything after boot or clock changes. */
+/**
+ * Fires a reminder notification, and re-schedules everything after boot, clock changes and
+ * changes to the exact-alarm permission (the system drops exact alarms when it is revoked).
+ */
 @AndroidEntryPoint
 class ReminderReceiver : BroadcastReceiver() {
 
@@ -45,6 +49,7 @@ class ReminderReceiver : BroadcastReceiver() {
                     Intent.ACTION_MY_PACKAGE_REPLACED,
                     Intent.ACTION_TIME_CHANGED,
                     Intent.ACTION_TIMEZONE_CHANGED,
+                    AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED,
                     -> scheduler.rescheduleAll()
                 }
             } finally {
