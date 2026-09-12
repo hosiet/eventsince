@@ -1,0 +1,3 @@
+First store release.
+
+Goal reminders now ask for the exact-alarm permission instead of assuming it; without it reminders still fire, but may be delayed.

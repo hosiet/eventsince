@@ -1,0 +1,28 @@
+EventSince keeps track of how long it has been since something happened: the day you quit a habit, the last time you called a friend, the start of a project, the last time you watered the plants. Every event shows a live counter, can be reset to start a new streak, and keeps a full history of every reset so you can look back at how you have been doing.
+
+FEATURES
+
+- Live counters in any combination of years, months, weeks, days, hours, minutes and seconds, set globally or per event
+- Reset now or from a chosen moment, with an optional note on every reset
+- Complete history of every operation, plus a calendar heatmap that shows how often an event was reset
+- Categories that can be renamed, reordered and collapsed
+- Goal reminders: get a notification when an event reaches 7 days, 1 year or any target you choose
+- Ten colour palettes, including one derived from your device's Material You colours, with light and dark themes
+- Home screen widgets, with or without a reset button
+- Share an event as an image
+- Search, stop and archive events
+- English and Simplified Chinese, switchable inside the app
+
+YOUR DATA STAYS YOURS
+
+EventSince has no account, no analytics, no ads and no servers of its own. Everything lives on your device. Export a backup archive whenever you like, or upload backups automatically to your own WebDAV server, such as Nextcloud, ownCloud or a NAS. The server password is stored encrypted with the Android Keystore.
+
+IMPORT FROM TIMESINCE
+
+If you used the TimeSince app, EventSince can import its .backup files and carry over your events, logs and reminders. EventSince is an independent reimplementation and is not affiliated with or endorsed by the authors of TimeSince.
+
+OPEN SOURCE
+
+EventSince is free software under the Apache License 2.0. The source code is at https://github.com/hosiet/eventsince
+
+Requires Android 13 or later.
