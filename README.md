@@ -78,6 +78,11 @@ or endorsed by the authors of TimeSince. As a courtesy to former TimeSince users
 EventSince can import the `.backup` files that TimeSince exported, so existing events,
 logs and reminders can be carried over.
 
+## Requirements
+
+EventSince runs on Android 13 (API level 33) or later. Release APKs are published for
+arm64-v8a and x86_64 devices, together with a universal APK that contains both.
+
 ## Building
 
 Requirements:
