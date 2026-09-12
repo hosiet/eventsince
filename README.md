@@ -126,6 +126,11 @@ Set `BUNDLETOOL` to the path of a bundletool jar to also run `bundletool validat
 Room schema files are checked in under `app/schemas` so that database migrations can be
 verified.
 
+## Privacy
+
+EventSince keeps all data on the device and sends it only to a WebDAV server the user
+configures. See [PRIVACY.md](PRIVACY.md) for the full policy in English and Chinese.
+
 ## License
 
 Copyright 2026 Boyuan Yang
