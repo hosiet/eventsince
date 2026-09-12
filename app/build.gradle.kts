@@ -14,9 +14,32 @@ android {
         applicationId = "me.byang.eventsince"
         minSdk = 33
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // Release signing is optional so that CI and F-Droid can build without the key.
+    // Provide EVENTSINCE_STORE_FILE, EVENTSINCE_STORE_PASSWORD, EVENTSINCE_KEY_ALIAS and
+    // EVENTSINCE_KEY_PASSWORD as Gradle properties (for example in ~/.gradle/gradle.properties)
+    // or as environment variables.
+    fun releaseSigningProperty(name: String): String? =
+        providers.gradleProperty(name).orElse(providers.environmentVariable(name)).orNull?.ifBlank { null }
+
+    val releaseStoreFile = releaseSigningProperty("EVENTSINCE_STORE_FILE")
+    if (releaseStoreFile != null) {
+        signingConfigs {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = releaseSigningProperty("EVENTSINCE_STORE_PASSWORD")
+                keyAlias = releaseSigningProperty("EVENTSINCE_KEY_ALIAS")
+                keyPassword = releaseSigningProperty("EVENTSINCE_KEY_PASSWORD")
+                enableV1Signing = false
+                enableV2Signing = true
+                enableV3Signing = true
+                enableV4Signing = false
+            }
+        }
     }
 
     buildTypes {
@@ -24,6 +47,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.findByName("release")
         }
         debug {
             applicationIdSuffix = ".debug"
