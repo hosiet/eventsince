@@ -42,6 +42,19 @@ android {
         }
     }
 
+    // Per-ABI APKs are only produced when the release script asks for them (-PabiSplits),
+    // so day-to-day debug builds and CI keep a single universal APK.
+    if (providers.gradleProperty("abiSplits").isPresent) {
+        splits {
+            abi {
+                isEnable = true
+                reset()
+                include("arm64-v8a", "x86_64")
+                isUniversalApk = true
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true

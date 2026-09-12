@@ -97,8 +97,9 @@ Release builds are signed only when the keystore location and passwords are supp
 as Gradle properties or environment variables (see `app/build.gradle.kts`); otherwise
 `assembleRelease` produces an unsigned APK, which is what CI does. The maintainer's
 release flow is `scripts/build-release.sh`, which reads the keystore password from the
-desktop keyring, builds, verifies the signature with apksigner and writes a versioned
-APK to `app/build/outputs/release-dist/`.
+desktop keyring, builds one APK per ABI (arm64-v8a and x86_64) plus a universal one,
+verifies each signature with apksigner and writes them with versioned names, together
+with a `SHA256SUMS` file, to `app/build/outputs/release-dist/`.
 
 ## Project layout
 

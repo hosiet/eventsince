@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds a signed release APK.
+# Builds signed release APKs: one per ABI (arm64-v8a, x86_64) plus a universal one.
 #
 # The keystore password is read from the desktop keyring (Secret Service API via
 # secret-tool) so it never has to be written to disk. Store it once with:
@@ -53,31 +53,39 @@ EVENTSINCE_STORE_FILE="$store_file" \
 EVENTSINCE_STORE_PASSWORD="$store_password" \
 EVENTSINCE_KEY_ALIAS="$key_alias" \
 EVENTSINCE_KEY_PASSWORD="$key_password" \
-./gradlew assembleRelease --no-daemon --no-configuration-cache "$@"
+./gradlew assembleRelease -PabiSplits=true --no-daemon --no-configuration-cache "$@"
 
-apk=app/build/outputs/apk/release/app-release.apk
-if [[ ! -f "$apk" ]]; then
-    echo "error: expected $apk after the build; was the signing config picked up?" >&2
+apk_dir=app/build/outputs/apk/release
+apks=("$apk_dir"/app-*-release.apk)
+if [[ ! -f "${apks[0]}" ]]; then
+    echo "error: no signed APKs under $apk_dir; was the signing config picked up?" >&2
     exit 1
 fi
 
-echo "==> Verifying signature"
-"$apksigner" verify --verbose --print-certs "$apk" | grep -E "Verified using|Signer .* certificate SHA-256|Number of signers"
-
-apk_fingerprint=$("$apksigner" verify --print-certs "$apk" | sed -n 's/^Signer #1 certificate SHA-256 digest: //p')
 keystore_fingerprint=$(STORE_PASSWORD="$store_password" keytool -list -v -keystore "$store_file" -alias "$key_alias" -storepass:env STORE_PASSWORD 2>/dev/null \
     | sed -n 's/^[[:space:]]*SHA256: //p' | tr -d ':' | tr 'A-F' 'a-f' | head -n 1)
-if [[ "$apk_fingerprint" != "$keystore_fingerprint" ]]; then
-    echo "error: APK certificate does not match the keystore ($apk_fingerprint vs $keystore_fingerprint)" >&2
-    exit 1
-fi
+build_tools=$(dirname "$apksigner")
+dist_dir=app/build/outputs/release-dist
+rm -rf "$dist_dir"
+mkdir -p "$dist_dir"
+
+echo "==> Verifying signatures"
+for apk in "${apks[@]}"; do
+    name=$(basename "$apk")
+    apk_fingerprint=$("$apksigner" verify --print-certs "$apk" 2>/dev/null | sed -n 's/^Signer #1 certificate SHA-256 digest: //p')
+    if [[ "$apk_fingerprint" != "$keystore_fingerprint" ]]; then
+        echo "error: $name certificate does not match the keystore ($apk_fingerprint vs $keystore_fingerprint)" >&2
+        exit 1
+    fi
+    schemes=$("$apksigner" verify --verbose "$apk" 2>/dev/null | sed -n 's/^Verified using \(v[0-9.]*\) scheme.*: true$/\1/p' | paste -sd, -)
+    # app-<abi>-release.apk -> eventsince-<version>-<abi>.apk
+    abi=${name#app-}; abi=${abi%-release.apk}
+    version=$("$build_tools/aapt" dump badging "$apk" 2>/dev/null | sed -n "s/.*versionName='\([^']*\)'.*/\1/p" | head -n 1)
+    dist_apk="$dist_dir/eventsince-${version:-unknown}-${abi}.apk"
+    cp "$apk" "$dist_apk"
+    echo "$name: certificate OK, signed with $schemes -> $dist_apk"
+done
 echo "Certificate matches $store_file (alias $key_alias)"
 
-# Copy to a versioned file name for uploading to a release.
-build_tools=$(dirname "$apksigner")
-version=$("$build_tools/aapt" dump badging "$apk" 2>/dev/null | sed -n "s/.*versionName='\([^']*\)'.*/\1/p" | head -n 1)
-dist_dir=app/build/outputs/release-dist
-mkdir -p "$dist_dir"
-dist_apk="$dist_dir/eventsince-${version:-unknown}.apk"
-cp "$apk" "$dist_apk"
-echo "==> Signed APK: $dist_apk"
+echo "==> Signed APKs in $dist_dir"
+(cd "$dist_dir" && sha256sum ./*.apk | tee SHA256SUMS)
