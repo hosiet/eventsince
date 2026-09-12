@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">事起</string>
+    <string name="sample_event_label">开始使用事起</string>
+
+    <string name="unit_suffix_years">年</string>
+    <string name="unit_suffix_months">月</string>
+    <string name="unit_suffix_weeks">周</string>
+    <string name="unit_suffix_days">天</string>
+    <string name="unit_suffix_hours">时</string>
+    <string name="unit_suffix_minutes">分</string>
+    <string name="unit_suffix_seconds">秒</string>
+
+    <string name="unit_years">年</string>
+    <string name="unit_months">月</string>
+    <string name="unit_weeks">周</string>
+    <string name="unit_days">天</string>
+    <string name="unit_hours">小时</string>
+    <string name="unit_minutes">分钟</string>
+    <string name="unit_seconds">秒</string>
+
+    <string name="action_confirm">确定</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_save">保存</string>
+    <string name="action_next">下一步</string>
+    <string name="action_back">返回</string>
+    <string name="action_create">创建</string>
+    <string name="action_delete">删除</string>
+    <string name="action_archive">归档</string>
+
+    <string name="picker_time_title">选择时刻</string>
+    <string name="picker_time_skip">使用 00:00</string>
+
+    <string name="home_add_event">新建事件</string>
+    <string name="home_empty">还没有事件</string>
+    <string name="home_sort_by_start">按起始时间排序</string>
+    <string name="home_drag_handle">拖动以排序</string>
+    <plurals name="home_archived">
+        <item quantity="other">已归档 %d 个事件</item>
+    </plurals>
+    <string name="home_archived_expand">展开已归档事件</string>
+    <string name="home_archived_collapse">收起已归档事件</string>
+
+    <string name="event_label">标签</string>
+    <string name="event_untitled">未命名事件</string>
+    <string name="event_color">颜色</string>
+    <string name="event_category">分类</string>
+    <string name="event_start">起始时间</string>
+    <string name="event_start_now">现在</string>
+    <string name="event_start_hint">点击可选择更早的日期和时刻</string>
+    <string name="event_start_use_now">改为现在</string>
+    <string-array name="event_label_examples">
+        <item>例如：戒烟</item>
+        <item>例如：不喝咖啡</item>
+        <item>例如：上次看牙医</item>
+        <item>例如：开始跑步</item>
+        <item>例如：搬到这座城市</item>
+        <item>例如：学钢琴</item>
+        <item>例如：戒酒</item>
+        <item>例如：给爸妈打电话</item>
+        <item>例如：给植物浇水</item>
+        <item>例如：上次理发</item>
+    </string-array>
+    <string name="add_event_title">新建事件</string>
+    <string name="add_event_start">开始计时</string>
+    <string name="edit_event_title">编辑事件</string>
+
+    <string name="event_detail_title">事件</string>
+    <string name="event_section_actions">操作</string>
+    <string name="event_reset_now">立即重置</string>
+    <string name="event_reset_from_date">从指定日期重置</string>
+    <string name="event_stop">停止</string>
+    <string name="event_section_options">选项</string>
+    <string name="event_edit">编辑</string>
+    <string name="event_format">时长格式</string>
+    <string name="event_archive">归档</string>
+    <string name="event_archive_confirm">要归档“%1$s”吗？它会移到主页底部的“已归档”部分，提醒会被取消，但仍保留在应用和备份中。</string>
+    <string name="event_unarchive">取消归档</string>
+    <string name="event_archived_at">已于 %1$s 归档</string>
+    <string name="event_delete">永久删除</string>
+    <string name="event_delete_confirm">要永久删除“%1$s”及其全部历史和提醒吗？此操作无法撤销，之后生成的备份也不再包含它。</string>
+    <string name="event_section_more">更多</string>
+    <string name="event_started_at">开始于 %1$s</string>
+    <string name="event_stopped_at">停止于 %1$s</string>
+
+    <string name="event_format_title">时长格式</string>
+    <string name="event_format_use_global">使用全局格式</string>
+    <string name="event_format_use_global_hint">关闭后可单独为此事件选择单位</string>
+    <string name="format_units">单位</string>
+    <string name="format_preview">预览：%1$s</string>
+    <string name="format_widget_hint">桌面小组件每隔几分钟才刷新一次，因此不会显示分和秒。</string>
+
+    <string name="categories_title">分类</string>
+    <string name="category_default_name">默认</string>
+    <string name="category_unnamed">未命名分类</string>
+    <string name="category_new">新建分类</string>
+    <string name="category_name">分类名称</string>
+    <string name="category_rename">重命名</string>
+    <string name="category_delete">删除分类</string>
+    <string name="category_delete_confirm">要删除“%1$s”吗？</string>
+    <plurals name="category_delete_has_events">
+        <item quantity="other">“%1$s”中有 %2$d 个事件，要如何处理？</item>
+    </plurals>
+    <string name="category_delete_move_default">保留在默认分类中</string>
+    <string name="category_delete_move_other">移动到其它分类</string>
+    <string name="category_delete_with_events">连同事件一起永久删除</string>
+    <plurals name="category_event_count">
+        <item quantity="other">%d 个事件</item>
+    </plurals>
+
+    <string name="history_title">历史</string>
+    <string name="reminders_title">提醒</string>
+    <string name="share_title">分享</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_categories_hint">新建、重命名、排序和删除分类</string>
+    <string name="appearance_title">外观</string>
+    <string name="settings_appearance_hint">主题、深色模式和事件配色</string>
+    <string name="formats_title">格式</string>
+    <string name="settings_formats_hint">时长单位、日期格式和每周起始日</string>
+    <string name="language_title">语言</string>
+    <string name="settings_language_hint">选择应用语言</string>
+    <string name="backup_title">备份与恢复</string>
+    <string name="settings_backup_hint">导出到文件或导入备份</string>
+    <string name="cloud_backup_title">云备份</string>
+    <string name="settings_cloud_backup_hint">备份到 WebDAV 服务器</string>
+    <string name="settings_about">事起 EventSince %1$s · Apache-2.0</string>
+
+    <string name="notification_channel_reminders">目标提醒</string>
+    <string name="notification_channel_reminders_description">当事件达到你设定的目标时通知你</string>
+    <plurals name="reminder_reached_hours">
+        <item quantity="other">已达到 %d 小时</item>
+    </plurals>
+    <plurals name="reminder_reached_days">
+        <item quantity="other">已达到 %d 天</item>
+    </plurals>
+    <plurals name="reminder_reached_weeks">
+        <item quantity="other">已达到 %d 周</item>
+    </plurals>
+    <plurals name="reminder_reached_years">
+        <item quantity="other">已达到 %d 年</item>
+    </plurals>
+
+    <string name="history_clear">清空重置记录</string>
+    <string name="history_clear_confirm">要删除此事件的全部重置记录吗？其它日志会保留。</string>
+    <string name="history_long_press_tip">长按重置记录可添加备注或删除</string>
+    <plurals name="history_reset_count">
+        <item quantity="other">已重置 %d 次</item>
+    </plurals>
+    <string name="history_longest_streak">最长一段：%1$s</string>
+    <plurals name="history_resets_on_day">
+        <item quantity="other">%d 次重置</item>
+    </plurals>
+    <string name="history_log">日志</string>
+    <string name="history_empty">暂无记录</string>
+    <string name="history_filter_all">全部</string>
+    <string name="history_filter_reset">重置</string>
+    <string name="history_filter_created">创建</string>
+    <string name="history_filter_stopped">停止</string>
+    <string name="history_filter_edited">编辑</string>
+    <string name="history_filter_other">其它</string>
+    <string name="history_type_reset">重置</string>
+    <string name="history_type_created">创建，起始于 %1$s</string>
+    <string name="history_type_stopped">停止，历时 %1$s</string>
+    <string name="history_type_edited">编辑：%1$s</string>
+    <string name="history_type_archived">已归档</string>
+    <string name="history_type_unarchived">已取消归档</string>
+    <string name="history_type_imported">从 %1$s 导入</string>
+    <string name="history_ago">%1$s前</string>
+    <string name="history_just_now">刚刚</string>
+    <string name="history_edit_reset">编辑重置记录</string>
+    <string name="history_notes">备注</string>
+    <string name="history_delete_record">删除记录</string>
+    <string name="history_delete_record_confirm">要删除这条重置记录吗？</string>
+
+    <string name="reminders_add">新建提醒</string>
+    <string name="reminders_intro">当此事件达到以下目标时会通知你。</string>
+    <string name="reminders_battery_hint">提醒不如闹钟精确。如果提醒迟到，点击此处把事起排除在电池优化之外。</string>
+    <string name="reminders_permission_denied">事起的通知权限已关闭，无法显示提醒。</string>
+    <string name="reminders_open_settings">打开通知设置</string>
+    <string name="reminders_empty">还没有提醒</string>
+    <string name="reminders_target">目标值</string>
+    <string name="reminders_limit_reached">已计划的提醒太多，请先删除一些。</string>
+    <string name="reminders_delete">删除提醒</string>
+    <string name="reminders_delete_confirm">要删除提醒“%1$s”吗？</string>
+    <string name="reminders_fires_at">将于 %1$s 提醒</string>
+    <string name="reminders_already_passed">目标已达到</string>
+    <string name="reminders_paused_stopped">事件已停止，提醒暂停</string>
+    <plurals name="reminder_target_hours">
+        <item quantity="other">%d 小时</item>
+    </plurals>
+    <plurals name="reminder_target_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <plurals name="reminder_target_weeks">
+        <item quantity="other">%d 周</item>
+    </plurals>
+    <plurals name="reminder_target_years">
+        <item quantity="other">%d 年</item>
+    </plurals>
+
+    <string name="backup_export_section">导出</string>
+    <string name="backup_export_hint">把全部分类、事件、日志、提醒和设置保存到你选择的压缩备份文件（.zip）。</string>
+    <string name="backup_export">导出备份</string>
+    <string name="backup_import_section">导入</string>
+    <string name="backup_import_hint">恢复事起的备份（.zip），或 TimeSince 应用导出的 .backup 文件。在做出任何改动前会先显示摘要。</string>
+    <string name="backup_import">导入备份</string>
+    <string name="backup_exported">备份已保存</string>
+    <string name="backup_imported">已导入 %1$d 个事件</string>
+    <string name="backup_invalid_file">事起无法读取这个文件</string>
+    <string name="backup_plain_json_rejected">不再支持未压缩的事起备份，请从应用重新导出。</string>
+    <string name="backup_error">失败：%1$s</string>
+    <string name="backup_preview_title">要导入这个备份吗？</string>
+    <string name="backup_preview_kind_eventsince">事起备份（格式版本 %1$d）</string>
+    <string name="backup_preview_kind_legacy">TimeSince 的备份</string>
+    <string name="backup_preview_counts">%1$d 个分类 · %2$d 个事件 · %3$d 条重置记录 · %4$d 条提醒</string>
+    <string name="backup_preview_modes">“替换全部”会先删除应用中现有的全部数据；“合并”会以新 id 追加文件中的分类。</string>
+    <string name="backup_import_merge">合并</string>
+    <string name="backup_import_replace">替换全部</string>
+
+    <string name="cloud_server_section">WebDAV 服务器</string>
+    <string name="cloud_url">服务器地址</string>
+    <string name="cloud_username">用户名</string>
+    <string name="cloud_password">密码</string>
+    <string name="cloud_remote_dir">远端目录</string>
+    <string name="cloud_trust_all">接受自签名证书</string>
+    <string name="cloud_trust_all_hint">对该服务器关闭证书校验。只对你自己掌控的服务器开启。</string>
+    <string name="cloud_test">测试连接</string>
+    <string name="cloud_saved">设置已保存，密码已加密存储。</string>
+    <string name="cloud_connection_ok">连接成功，远端目录已就绪。</string>
+    <string name="cloud_manual_section">手动</string>
+    <string name="cloud_upload_now">上传备份</string>
+    <string name="cloud_restore">从云端恢复</string>
+    <string name="cloud_uploaded">已上传 %1$s</string>
+    <string name="cloud_last_backup">上次备份：%1$s</string>
+    <string name="cloud_last_error">上次备份失败：%1$s</string>
+    <string name="cloud_never_backed_up">尚未上传过备份</string>
+    <string name="cloud_no_backups">远端目录中没有备份。</string>
+    <string name="cloud_auto_section">自动备份</string>
+    <string name="cloud_auto_backup">数据变更后自动备份</string>
+    <string name="cloud_auto_backup_hint">最后一次变更约 30 秒后上传一份备份</string>
+    <string name="cloud_wifi_only">仅在不计流量的网络（Wi‑Fi）下</string>
+    <string name="cloud_keep_count">保留最近 %1$d 份备份</string>
+
+    <string name="appearance_mode">模式</string>
+    <string name="appearance_mode_system">跟随系统</string>
+    <string name="appearance_mode_light">浅色</string>
+    <string name="appearance_mode_dark">深色</string>
+    <string name="appearance_dynamic_color">Material You 取色</string>
+    <string name="appearance_dynamic_color_hint">用壁纸的颜色为界面着色</string>
+    <string name="appearance_palette">事件配色</string>
+    <string name="appearance_headers">主页的分类标题</string>
+    <string name="appearance_headers_auto">自动</string>
+    <string name="appearance_headers_auto_hint">只有默认分类时隐藏</string>
+    <string name="appearance_headers_always">总是显示</string>
+    <string name="palette_default">经典</string>
+    <string name="palette_unicorn">独角兽</string>
+    <string name="palette_sunrise">日出</string>
+    <string name="palette_ocean">海洋</string>
+    <string name="palette_forest">森林</string>
+    <string name="palette_autumn">秋日</string>
+    <string name="palette_winter">冬日</string>
+    <string name="palette_candy_shop">糖果</string>
+    <string name="palette_monochrome">单色</string>
+    <string name="palette_system">系统</string>
+
+    <string name="formats_duration">时长单位</string>
+    <string name="formats_apply_all">应用到全部事件</string>
+    <string name="formats_apply_all_confirm">要用全局单位覆盖每个事件各自的单位设置吗？</string>
+    <string name="formats_applied">已应用到全部事件</string>
+    <string name="formats_date">日期格式</string>
+    <string name="formats_date_system">跟随系统</string>
+    <string name="formats_week_start">每周起始日</string>
+    <string name="formats_week_start_system">跟随系统</string>
+    <string name="formats_week_start_sunday">周日</string>
+    <string name="formats_week_start_monday">周一</string>
+
+    <string name="language_choose">应用语言</string>
+    <string name="language_system">跟随系统</string>
+    <string name="language_hint">也可以在系统设置的"应用语言"中更改。</string>
+
+    <string name="share_send">分享图片</string>
+    <string name="share_pick_style">选择一张卡片，然后点分享按钮。</string>
+
+    <string name="home_search">搜索</string>
+    <string name="home_search_hint">搜索事件</string>
+    <string name="home_search_empty">没有匹配的事件</string>
+
+    <string name="widget_standard_label">事起</string>
+    <string name="widget_standard_description">显示一个事件的时长和标签</string>
+    <string name="widget_reset_label">事起（带重置）</string>
+    <string name="widget_reset_description">显示一个事件并附带重置按钮</string>
+    <string name="widget_pick_event">选择事件</string>
+    <string name="widget_no_events">还没有事件，去新建一个</string>
+    <string name="widget_event_deleted">事件已删除</string>
+    <string name="widget_not_configured">点击以设置</string>
+
+    <string name="formats_date_hint">用于所有显示日期的地方：事件的开始/停止时间、历史记录、提醒和备份。</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The WebDAV server address is chosen by the user; plain-HTTP servers on a home LAN are common,
+     so cleartext is permitted. Certificate checks stay on unless the user opts out per server. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

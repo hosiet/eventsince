@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventSince</string>
+    <string name="sample_event_label">Started using EventSince</string>
+
+    <!-- Duration unit suffixes used by the elapsed-time formatter -->
+    <string name="unit_suffix_years">y</string>
+    <string name="unit_suffix_months">m</string>
+    <string name="unit_suffix_weeks">w</string>
+    <string name="unit_suffix_days">d</string>
+    <string name="unit_suffix_hours">h</string>
+    <string name="unit_suffix_minutes">min</string>
+    <string name="unit_suffix_seconds">s</string>
+
+    <string name="unit_years">Years</string>
+    <string name="unit_months">Months</string>
+    <string name="unit_weeks">Weeks</string>
+    <string name="unit_days">Days</string>
+    <string name="unit_hours">Hours</string>
+    <string name="unit_minutes">Minutes</string>
+    <string name="unit_seconds">Seconds</string>
+
+    <!-- Generic actions -->
+    <string name="action_confirm">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_next">Next</string>
+    <string name="action_back">Back</string>
+    <string name="action_create">Create</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_archive">Archive</string>
+
+    <string name="picker_time_title">Time of day</string>
+    <string name="picker_time_skip">Use 00:00</string>
+
+    <!-- Home -->
+    <string name="home_add_event">New event</string>
+    <string name="home_empty">No events yet</string>
+    <string name="home_sort_by_start">Sort by start time</string>
+    <string name="home_drag_handle">Drag to reorder</string>
+    <plurals name="home_archived">
+        <item quantity="one">%d archived event</item>
+        <item quantity="other">%d archived events</item>
+    </plurals>
+    <string name="home_archived_expand">Show archived events</string>
+    <string name="home_archived_collapse">Hide archived events</string>
+
+    <!-- Event form -->
+    <string name="event_label">Label</string>
+    <string name="event_untitled">Untitled event</string>
+    <string name="event_color">Colour</string>
+    <string name="event_category">Category</string>
+    <string name="event_start">Start</string>
+    <string name="event_start_now">Now</string>
+    <string name="event_start_hint">Tap to choose an earlier date and time</string>
+    <string name="event_start_use_now">Use now</string>
+    <string-array name="event_label_examples">
+        <item>e.g. Quit smoking</item>
+        <item>e.g. No coffee</item>
+        <item>e.g. Last dentist visit</item>
+        <item>e.g. Started running</item>
+        <item>e.g. Moved to this city</item>
+        <item>e.g. Learning the piano</item>
+        <item>e.g. No alcohol</item>
+        <item>e.g. Called my parents</item>
+        <item>e.g. Watered the plants</item>
+        <item>e.g. Last haircut</item>
+    </string-array>
+    <string name="add_event_title">New event</string>
+    <string name="add_event_start">Start</string>
+    <string name="edit_event_title">Edit event</string>
+
+    <!-- Event detail -->
+    <string name="event_detail_title">Event</string>
+    <string name="event_section_actions">Actions</string>
+    <string name="event_reset_now">Reset now</string>
+    <string name="event_reset_from_date">Reset from a date</string>
+    <string name="event_stop">Stop</string>
+    <string name="event_section_options">Options</string>
+    <string name="event_edit">Edit</string>
+    <string name="event_format">Duration format</string>
+    <string name="event_archive">Archive</string>
+    <string name="event_archive_confirm">Archive “%1$s”? It moves to the archived section at the bottom of the home screen and its reminders are cancelled. It stays in the app and in backups.</string>
+    <string name="event_unarchive">Unarchive</string>
+    <string name="event_archived_at">Archived %1$s</string>
+    <string name="event_delete">Delete permanently</string>
+    <string name="event_delete_confirm">Permanently delete “%1$s” together with its history and reminders? This cannot be undone, and backups made from now on will no longer contain it.</string>
+    <string name="event_section_more">More</string>
+    <string name="event_started_at">Started %1$s</string>
+    <string name="event_stopped_at">Stopped %1$s</string>
+
+    <!-- Duration format -->
+    <string name="event_format_title">Duration format</string>
+    <string name="event_format_use_global">Use the global format</string>
+    <string name="event_format_use_global_hint">Turn off to choose units for this event only</string>
+    <string name="format_units">Units</string>
+    <string name="format_preview">Preview: %1$s</string>
+    <string name="format_widget_hint">Home-screen widgets refresh every few minutes, so minutes and seconds are not shown there.</string>
+
+    <!-- Categories -->
+    <string name="categories_title">Categories</string>
+    <string name="category_default_name">Default</string>
+    <string name="category_unnamed">Unnamed category</string>
+    <string name="category_new">New category</string>
+    <string name="category_name">Category name</string>
+    <string name="category_rename">Rename</string>
+    <string name="category_delete">Delete category</string>
+    <string name="category_delete_confirm">Delete “%1$s”?</string>
+    <plurals name="category_delete_has_events">
+        <item quantity="one">“%1$s” contains %2$d event. What should happen to it?</item>
+        <item quantity="other">“%1$s” contains %2$d events. What should happen to them?</item>
+    </plurals>
+    <string name="category_delete_move_default">Keep them in the default category</string>
+    <string name="category_delete_move_other">Move them to another category</string>
+    <string name="category_delete_with_events">Permanently delete the events as well</string>
+    <plurals name="category_event_count">
+        <item quantity="one">%d event</item>
+        <item quantity="other">%d events</item>
+    </plurals>
+
+    <!-- History and reminders (titles used from the detail screen) -->
+    <string name="history_title">History</string>
+    <string name="reminders_title">Reminders</string>
+    <string name="share_title">Share</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_categories_hint">Add, rename, reorder and delete categories</string>
+    <string name="appearance_title">Appearance</string>
+    <string name="settings_appearance_hint">Theme, dark mode and event colours</string>
+    <string name="formats_title">Formats</string>
+    <string name="settings_formats_hint">Duration units, date format and first day of week</string>
+    <string name="language_title">Language</string>
+    <string name="settings_language_hint">Choose the app language</string>
+    <string name="backup_title">Backup and restore</string>
+    <string name="settings_backup_hint">Export to a file or import a backup</string>
+    <string name="cloud_backup_title">Cloud backup</string>
+    <string name="settings_cloud_backup_hint">Back up to a WebDAV server</string>
+    <string name="settings_about">EventSince %1$s · Apache-2.0</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_reminders">Goal reminders</string>
+    <string name="notification_channel_reminders_description">Notifies you when an event reaches a goal you set</string>
+    <plurals name="reminder_reached_hours">
+        <item quantity="one">Reached %d hour</item>
+        <item quantity="other">Reached %d hours</item>
+    </plurals>
+    <plurals name="reminder_reached_days">
+        <item quantity="one">Reached %d day</item>
+        <item quantity="other">Reached %d days</item>
+    </plurals>
+    <plurals name="reminder_reached_weeks">
+        <item quantity="one">Reached %d week</item>
+        <item quantity="other">Reached %d weeks</item>
+    </plurals>
+    <plurals name="reminder_reached_years">
+        <item quantity="one">Reached %d year</item>
+        <item quantity="other">Reached %d years</item>
+    </plurals>
+
+    <!-- History -->
+    <string name="history_clear">Clear reset records</string>
+    <string name="history_clear_confirm">Delete every reset record of this event? Other log entries are kept.</string>
+    <string name="history_long_press_tip">Long-press a reset record to add a note or delete it</string>
+    <plurals name="history_reset_count">
+        <item quantity="one">Reset %d time</item>
+        <item quantity="other">Reset %d times</item>
+    </plurals>
+    <string name="history_longest_streak">Longest streak: %1$s</string>
+    <plurals name="history_resets_on_day">
+        <item quantity="one">%d reset</item>
+        <item quantity="other">%d resets</item>
+    </plurals>
+    <string name="history_log">Log</string>
+    <string name="history_empty">Nothing here yet</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_reset">Resets</string>
+    <string name="history_filter_created">Created</string>
+    <string name="history_filter_stopped">Stopped</string>
+    <string name="history_filter_edited">Edited</string>
+    <string name="history_filter_other">Other</string>
+    <string name="history_type_reset">Reset</string>
+    <string name="history_type_created">Created, started %1$s</string>
+    <string name="history_type_stopped">Stopped after %1$s</string>
+    <string name="history_type_edited">Edited: %1$s</string>
+    <string name="history_type_archived">Archived</string>
+    <string name="history_type_unarchived">Unarchived</string>
+    <string name="history_type_imported">Imported from %1$s</string>
+    <string name="history_ago">%1$s ago</string>
+    <string name="history_just_now">just now</string>
+    <string name="history_edit_reset">Edit reset record</string>
+    <string name="history_notes">Notes</string>
+    <string name="history_delete_record">Delete record</string>
+    <string name="history_delete_record_confirm">Delete this reset record?</string>
+
+    <!-- Reminders -->
+    <string name="reminders_add">New reminder</string>
+    <string name="reminders_intro">You will be notified when this event reaches the goals below.</string>
+    <string name="reminders_battery_hint">Reminders are less precise than alarms. If they arrive late, tap here to exclude EventSince from battery optimisation.</string>
+    <string name="reminders_permission_denied">Notifications are turned off for EventSince, so reminders cannot be shown.</string>
+    <string name="reminders_open_settings">Open notification settings</string>
+    <string name="reminders_empty">No reminders yet</string>
+    <string name="reminders_target">Goal</string>
+    <string name="reminders_limit_reached">Too many reminders are scheduled. Delete some first.</string>
+    <string name="reminders_delete">Delete reminder</string>
+    <string name="reminders_delete_confirm">Delete the reminder “%1$s”?</string>
+    <string name="reminders_fires_at">Fires %1$s</string>
+    <string name="reminders_already_passed">Goal already reached</string>
+    <string name="reminders_paused_stopped">Paused while the event is stopped</string>
+    <plurals name="reminder_target_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="reminder_target_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="reminder_target_weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weeks</item>
+    </plurals>
+    <plurals name="reminder_target_years">
+        <item quantity="one">%d year</item>
+        <item quantity="other">%d years</item>
+    </plurals>
+
+    <!-- Backup -->
+    <string name="backup_export_section">Export</string>
+    <string name="backup_export_hint">Saves every category, event, log entry, reminder and your settings to a compressed backup file (.zip) you choose.</string>
+    <string name="backup_export">Export backup</string>
+    <string name="backup_import_section">Import</string>
+    <string name="backup_import_hint">Restores an EventSince backup (.zip), or a .backup file exported by the TimeSince app. You will see a summary before anything changes.</string>
+    <string name="backup_import">Import backup</string>
+    <string name="backup_exported">Backup saved</string>
+    <string name="backup_imported">Imported %1$d events</string>
+    <string name="backup_invalid_file">This file is not a backup EventSince can read</string>
+    <string name="backup_plain_json_rejected">Uncompressed EventSince backups are no longer supported. Export a new backup from the app.</string>
+    <string name="backup_error">Failed: %1$s</string>
+    <string name="backup_preview_title">Import this backup?</string>
+    <string name="backup_preview_kind_eventsince">EventSince backup (schema %1$d)</string>
+    <string name="backup_preview_kind_legacy">TimeSince backup</string>
+    <string name="backup_preview_counts">%1$d categories · %2$d events · %3$d reset records · %4$d reminders</string>
+    <string name="backup_preview_modes">“Replace” deletes everything currently in the app first. “Merge” appends the file’s categories with new ids.</string>
+    <string name="backup_import_merge">Merge</string>
+    <string name="backup_import_replace">Replace all</string>
+
+    <!-- Cloud backup -->
+    <string name="cloud_server_section">WebDAV server</string>
+    <string name="cloud_url">Server URL</string>
+    <string name="cloud_username">Username</string>
+    <string name="cloud_password">Password</string>
+    <string name="cloud_remote_dir">Remote folder</string>
+    <string name="cloud_trust_all">Accept self-signed certificates</string>
+    <string name="cloud_trust_all_hint">Disables certificate checks for this server. Only turn this on for a server you control.</string>
+    <string name="cloud_test">Test connection</string>
+    <string name="cloud_saved">Settings saved. The password is stored encrypted.</string>
+    <string name="cloud_connection_ok">Connected. The remote folder is ready.</string>
+    <string name="cloud_manual_section">Manual</string>
+    <string name="cloud_upload_now">Upload backup</string>
+    <string name="cloud_restore">Restore from cloud</string>
+    <string name="cloud_uploaded">Uploaded %1$s</string>
+    <string name="cloud_last_backup">Last backup: %1$s</string>
+    <string name="cloud_last_error">Last backup failed: %1$s</string>
+    <string name="cloud_never_backed_up">No backup uploaded yet</string>
+    <string name="cloud_no_backups">No backups found in the remote folder.</string>
+    <string name="cloud_auto_section">Automatic backup</string>
+    <string name="cloud_auto_backup">Back up after changes</string>
+    <string name="cloud_auto_backup_hint">Uploads a backup about 30 seconds after the last change</string>
+    <string name="cloud_wifi_only">Only on unmetered networks (Wi-Fi)</string>
+    <string name="cloud_keep_count">Keep the latest %1$d backups</string>
+
+    <!-- Appearance -->
+    <string name="appearance_mode">Mode</string>
+    <string name="appearance_mode_system">Follow system</string>
+    <string name="appearance_mode_light">Light</string>
+    <string name="appearance_mode_dark">Dark</string>
+    <string name="appearance_dynamic_color">Material You colours</string>
+    <string name="appearance_dynamic_color_hint">Tint the interface with your wallpaper colours</string>
+    <string name="appearance_palette">Event colours</string>
+    <string name="appearance_headers">Category headers on the home screen</string>
+    <string name="appearance_headers_auto">Automatic</string>
+    <string name="appearance_headers_auto_hint">Hidden while only the default category exists</string>
+    <string name="appearance_headers_always">Always show</string>
+    <string name="palette_default">Classic</string>
+    <string name="palette_unicorn">Unicorn</string>
+    <string name="palette_sunrise">Sunrise</string>
+    <string name="palette_ocean">Ocean</string>
+    <string name="palette_forest">Forest</string>
+    <string name="palette_autumn">Autumn</string>
+    <string name="palette_winter">Winter</string>
+    <string name="palette_candy_shop">Candy</string>
+    <string name="palette_monochrome">Mono</string>
+    <string name="palette_system">System</string>
+
+    <!-- Formats -->
+    <string name="formats_duration">Duration units</string>
+    <string name="formats_apply_all">Apply to every event</string>
+    <string name="formats_apply_all_confirm">Overwrite the per-event units of every event with the global ones?</string>
+    <string name="formats_applied">Applied to all events</string>
+    <string name="formats_date">Date format</string>
+    <string name="formats_date_system">Follow system</string>
+    <string name="formats_week_start">First day of the week</string>
+    <string name="formats_week_start_system">Follow system</string>
+    <string name="formats_week_start_sunday">Sunday</string>
+    <string name="formats_week_start_monday">Monday</string>
+
+    <!-- Language -->
+    <string name="language_choose">App language</string>
+    <string name="language_system">System default</string>
+    <string name="language_hint">The language can also be changed in the system settings under App languages.</string>
+
+    <!-- Share -->
+    <string name="share_send">Share image</string>
+    <string name="share_pick_style">Choose a card, then tap the share button.</string>
+
+    <!-- Search -->
+    <string name="home_search">Search</string>
+    <string name="home_search_hint">Search events</string>
+    <string name="home_search_empty">No matching events</string>
+
+    <!-- Widgets -->
+    <string name="widget_standard_label">EventSince</string>
+    <string name="widget_standard_description">Elapsed time and label of one event</string>
+    <string name="widget_reset_label">EventSince (reset)</string>
+    <string name="widget_reset_description">One event with a reset button</string>
+    <string name="widget_pick_event">Choose an event</string>
+    <string name="widget_no_events">No events yet. Create one</string>
+    <string name="widget_event_deleted">Event deleted</string>
+    <string name="widget_not_configured">Tap to configure</string>
+
+    <string name="formats_date_hint">Used wherever a date is shown: event start and stop times, history, reminders and backups.</string>
+</resources>
