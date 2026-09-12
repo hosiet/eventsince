@@ -9,6 +9,35 @@ at how you have been doing.
 The app is written in Kotlin with Jetpack Compose and Material 3, targets Android 13
 (API 33) and later, and is released under the Apache License 2.0.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01-home.png" alt="Home" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02-event.png" alt="Event" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03-heatmap.png" alt="Reset heatmap" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/04-history.png" alt="History" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center">Home</td>
+    <td align="center">Event</td>
+    <td align="center">Reset heatmap</td>
+    <td align="center">History</td>
+  </tr>
+  <tr>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/05-reminders.png" alt="Reminders" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/06-share.png" alt="Share card" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/07-cloud-backup.png" alt="Cloud backup" width="200"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/08-home-dark.png" alt="Dark mode" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center">Reminders</td>
+    <td align="center">Share card</td>
+    <td align="center">Cloud backup</td>
+    <td align="center">Dark mode</td>
+  </tr>
+</table>
+
 ## Features
 
 - **Events.** Each event has a label, a colour, a category and a start date and time.
@@ -41,12 +70,13 @@ The app is written in Kotlin with Jetpack Compose and Material 3, targets Androi
 
 ## Relationship to TimeSince
 
-EventSince is a clean-room reimplementation of TimeSince, an Android app that is no
-longer available in the app stores. It was developed from a written description of
-TimeSince's behaviour and data formats only, without access to its source code or
-assets. EventSince is not affiliated with or endorsed by the authors of TimeSince. As a
-courtesy to former TimeSince users, EventSince can import the `.backup` files that
-TimeSince exported, so existing events, logs and reminders can be carried over.
+EventSince is a clean-room reimplementation of [TimeSince](https://time-since-multi-time-counter.en.softonic.com/android)
+(`es.desaway.timesince`), an Android app that is no longer available in the app stores.
+It was developed from a written description of TimeSince's behaviour and data formats
+only, without access to its source code or assets. EventSince is not affiliated with
+or endorsed by the authors of TimeSince. As a courtesy to former TimeSince users,
+EventSince can import the `.backup` files that TimeSince exported, so existing events,
+logs and reminders can be carried over.
 
 ## Building
 
