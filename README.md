@@ -106,6 +106,12 @@ desktop keyring, builds one APK per ABI (arm64-v8a and x86_64) plus a universal 
 verifies each signature with apksigner and writes them with versioned names, together
 with a `SHA256SUMS` file, to `app/build/outputs/release-dist/`.
 
+For Google Play, `scripts/build-bundle.sh` builds the Android App Bundle with the same
+key (`bundleRelease`), checks the signer certificate against the keystore and writes
+`eventsince-<version>.aab` plus the R8 mapping file to the same directory. The bundle
+keeps both languages in the base module because the app has its own language picker.
+Set `BUNDLETOOL` to the path of a bundletool jar to also run `bundletool validate`.
+
 ## Project layout
 
 - `app/src/main/kotlin/me/byang/eventsince/core` contains the pure algorithms for

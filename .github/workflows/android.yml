@@ -21,6 +21,8 @@ jobs:
         run: ./gradlew assembleDebug --no-daemon
       - name: Lint
         run: ./gradlew lintDebug --no-daemon
+      - name: Assemble unsigned release APK and bundle
+        run: ./gradlew assembleRelease bundleRelease --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug

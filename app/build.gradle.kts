@@ -55,6 +55,14 @@ android {
         }
     }
 
+    bundle {
+        // The app has its own language picker (LocaleManager), so both languages must be
+        // installed up front instead of being delivered by Play as on-demand splits.
+        language {
+            enableSplit = false
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
